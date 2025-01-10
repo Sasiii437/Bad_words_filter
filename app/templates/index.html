@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad Word Filter</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bad Word Filter</h1>
+        <form method="POST">
+            <textarea name="sentence" placeholder="Enter a sentence..." required>{{ original_sentence or '' }}</textarea>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if sanitized_sentence %}
+            <h2>Result:</h2>
+            <p><strong>Original:</strong> {{ original_sentence }}</p>
+            <p><strong>Sanitized:</strong> {{ sanitized_sentence }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
